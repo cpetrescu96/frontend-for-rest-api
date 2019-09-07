@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import MaterialTable from 'material-table';
-import TablePaginationActions from './TablePaginationActions';
 
 class Table extends Component {
   handleChangeRowsPerPage = event => {
@@ -42,23 +41,6 @@ class Table extends Component {
         components={ {
           Toolbar: props => {
             return null;
-          },
-          Pagination: props => {
-            return (
-              <TablePaginationActions
-                onChangeRowsPerPage={ this.handleChangeRowsPerPage }
-                ///
-                rowsPerPageOptions={ [5, 10, 25] }
-                colSpan={ 3 }
-                count={ this.props.rows.length }
-                rowsPerPage={ this.props.rowsPerPage }
-                page={ this.props.page }
-                prevPage={ this.props.prevPage }
-                nextPage={ this.props.nextPage }
-                onChangePage={ this.handleChangePage }
-                ActionsComponent={ this.props.TablePaginationActions }
-              />
-            );
           }
         } }
         options={ { paginationType: 'normal' } }
